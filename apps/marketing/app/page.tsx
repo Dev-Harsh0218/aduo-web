@@ -52,7 +52,7 @@ export default function Home() {
             </a>
           </div>
           <p className="mt-4 text-xs text-neutral-500">
-            Free during early preview. Both panels launching soon.
+            Free during early preview. Both panels are live — sign in with any email.
           </p>
         </div>
       </section>
@@ -115,10 +115,10 @@ export default function Home() {
               <li className="flex gap-2"><span className="text-neutral-400">•</span> Revenue dashboard with hourly resolution</li>
             </ul>
             <a
-              href="#coming-soon"
+              href="https://publisher-rust.vercel.app"
               className="mt-8 inline-flex items-center rounded-md bg-neutral-900 text-white text-sm font-medium px-5 py-2.5 hover:bg-neutral-800 transition"
             >
-              Publisher panel — coming soon
+              Open publisher panel →
             </a>
           </div>
           <div className="rounded-lg border border-neutral-200 bg-neutral-950 p-6 text-sm font-mono text-neutral-300 overflow-x-auto">
@@ -164,10 +164,10 @@ class MainActivity : AppCompatActivity() {
               <li className="flex gap-2"><span className="text-neutral-400">•</span> SSE-powered live counters — impressions update as they happen</li>
             </ul>
             <a
-              href="#coming-soon"
+              href="https://advertiser-xi.vercel.app"
               className="mt-8 inline-flex items-center rounded-md border border-neutral-300 bg-white text-neutral-900 text-sm font-medium px-5 py-2.5 hover:bg-neutral-50 transition"
             >
-              Advertiser console — coming soon
+              Open advertiser console →
             </a>
           </div>
           <div className="rounded-lg border border-neutral-200 bg-white p-6">
