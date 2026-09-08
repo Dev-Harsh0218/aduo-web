@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Aduo · Publisher",
+  title: "Aduo · Advertiser",
   description:
-    "Aduo publisher panel — SDK key management, integration guide, revenue reports.",
+    "Aduo advertiser console — campaign management, analytics, billing.",
 };
 
 export default function RootLayout({

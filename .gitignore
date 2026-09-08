@@ -87,6 +87,12 @@ web_modules/
 .next
 out
 
+# Turborepo cache
+.turbo/
+
+# CRA / react-scripts build
+build/
+
 # Nuxt.js build / generate output
 .nuxt
 dist
