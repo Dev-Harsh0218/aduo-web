@@ -1,48 +1,26 @@
 {
-  "name": "website",
-  "version": "0.1.0",
+  "name": "aduo-web",
   "private": true,
-  "dependencies": {
-    "@headlessui/react": "^2.2.0",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.7.2",
-    "date-fns": "^3.0.6",
-    "react": "^18.3.1",
-    "react-date-range": "^2.0.1",
-    "react-dom": "^18.3.1",
-    "react-hot-toast": "^2.4.1",
-    "react-icons": "^5.2.1",
-    "react-router-dom": "^7.1.1",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
+  "version": "0.1.0",
+  "packageManager": "pnpm@11.0.9",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md,json}\"",
+    "clean": "turbo run clean && rm -rf node_modules"
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.3"
+    "prettier": "^3.3.0",
+    "turbo": "^2.3.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

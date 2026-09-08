@@ -1,0 +1,10 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+# Approve build scripts that pnpm blocks by default (security feature).
+# These packages need to run install-time scripts to work correctly.
+allowBuilds:
+  core-js: true
+  core-js-pure: true
+  unrs-resolver: true
