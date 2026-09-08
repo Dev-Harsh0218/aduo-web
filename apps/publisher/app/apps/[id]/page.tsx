@@ -91,7 +91,7 @@ export default async function AppDetailPage(props: PageProps<"/apps/[id]">) {
           <LineChartBlock
             data={revenueSeries}
             color="#059669"
-            formatValue={(v) => `$${v}`}
+            format="currency"
           />
         </Card>
         <Card title="Impressions timeline" subtitle="Daily, last 30 days">

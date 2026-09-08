@@ -73,7 +73,7 @@ export default function DashboardPage() {
             <LineChartBlock
               data={revenueSeries}
               color="#059669"
-              formatValue={(v) => `$${v}`}
+              format="currency"
             />
           </Card>
         </div>

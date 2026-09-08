@@ -14,26 +14,43 @@ import type { TimePoint } from "@/lib/mock-data";
 
 const AXIS_STYLE = { fontSize: 11, fill: "#737373" };
 
+// String-enum format so we can pass this from Server Components across the RSC
+// boundary. Functions can't cross the server/client boundary in RSC.
+export type ChartFormat = "currency" | "compact" | "number" | "percent";
+
+const FORMATTERS: Record<ChartFormat, (n: number) => string> = {
+  currency: (n) => `$${n.toLocaleString("en-US", { maximumFractionDigits: 0 })}`,
+  compact: (n) =>
+    new Intl.NumberFormat("en-US", {
+      notation: "compact",
+      maximumFractionDigits: 1,
+    }).format(n),
+  number: (n) => new Intl.NumberFormat("en-US").format(n),
+  percent: (n) => `${n}%`,
+};
+
+function resolveFormatter(format?: ChartFormat) {
+  return format ? FORMATTERS[format] : FORMATTERS.compact;
+}
+
 type LineProps = {
   data: TimePoint[];
   color?: string;
   height?: number;
-  formatValue?: (n: number) => string;
+  format?: ChartFormat;
 };
 
 export function LineChartBlock({
   data,
   color = "#4f46e5",
   height = 240,
-  formatValue,
+  format,
 }: LineProps) {
+  const fmt = resolveFormatter(format);
   return (
     <div style={{ width: "100%", height }}>
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart
-          data={data}
-          margin={{ top: 8, right: 16, bottom: 0, left: 0 }}
-        >
+        <LineChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
           <CartesianGrid stroke="#f5f5f5" vertical={false} />
           <XAxis
             dataKey="date"
@@ -47,14 +64,7 @@ export function LineChartBlock({
             axisLine={false}
             tickLine={false}
             width={44}
-            tickFormatter={
-              formatValue ??
-              ((v: number) =>
-                new Intl.NumberFormat("en-US", {
-                  notation: "compact",
-                  maximumFractionDigits: 1,
-                }).format(v))
-            }
+            tickFormatter={fmt}
           />
           <Tooltip
             contentStyle={{
@@ -62,11 +72,7 @@ export function LineChartBlock({
               borderRadius: 8,
               border: "1px solid #e5e5e5",
             }}
-            formatter={(value: number) =>
-              formatValue
-                ? formatValue(value)
-                : new Intl.NumberFormat("en-US").format(value)
-            }
+            formatter={(value: number) => fmt(value)}
           />
           <Line
             type="monotone"
@@ -86,22 +92,20 @@ type BarProps = {
   data: TimePoint[];
   color?: string;
   height?: number;
-  formatValue?: (n: number) => string;
+  format?: ChartFormat;
 };
 
 export function BarChartBlock({
   data,
   color = "#4f46e5",
   height = 240,
-  formatValue,
+  format,
 }: BarProps) {
+  const fmt = resolveFormatter(format);
   return (
     <div style={{ width: "100%", height }}>
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart
-          data={data}
-          margin={{ top: 8, right: 16, bottom: 0, left: 0 }}
-        >
+        <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: 0 }}>
           <CartesianGrid stroke="#f5f5f5" vertical={false} />
           <XAxis
             dataKey="date"
@@ -115,14 +119,7 @@ export function BarChartBlock({
             axisLine={false}
             tickLine={false}
             width={44}
-            tickFormatter={
-              formatValue ??
-              ((v: number) =>
-                new Intl.NumberFormat("en-US", {
-                  notation: "compact",
-                  maximumFractionDigits: 1,
-                }).format(v))
-            }
+            tickFormatter={fmt}
           />
           <Tooltip
             contentStyle={{
@@ -130,11 +127,7 @@ export function BarChartBlock({
               borderRadius: 8,
               border: "1px solid #e5e5e5",
             }}
-            formatter={(value: number) =>
-              formatValue
-                ? formatValue(value)
-                : new Intl.NumberFormat("en-US").format(value)
-            }
+            formatter={(value: number) => fmt(value)}
           />
           <Bar dataKey="value" fill={color} radius={[3, 3, 0, 0]} />
         </BarChart>

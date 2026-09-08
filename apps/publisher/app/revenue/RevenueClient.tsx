@@ -130,7 +130,7 @@ export function RevenueClient({ apps }: { apps: App[] }) {
           <LineChartBlock
             data={series}
             color="#059669"
-            formatValue={(v) => `$${v}`}
+            format="currency"
           />
         </Card>
       </div>
