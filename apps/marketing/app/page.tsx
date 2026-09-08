@@ -182,34 +182,40 @@ class MainActivity : AppCompatActivity() {
                 <div className="text-2xl font-semibold text-neutral-900 tabular-nums">2.14%</div>
               </div>
               <div className="h-24 rounded bg-gradient-to-r from-neutral-100 via-neutral-200 to-neutral-100"></div>
-              <div className="text-xs text-neutral-500">Preview mockup — real console launching soon.</div>
+              <div className="text-xs text-neutral-500">Preview mockup — the real console is <a href="https://advertiser-xi.vercel.app" className="underline hover:text-neutral-900">live here</a>.</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Coming soon / early access */}
-      <section id="coming-soon" className="border-t border-neutral-200">
+      {/* Both panels are live */}
+      <section id="try-it" className="border-t border-neutral-200">
         <div className="max-w-6xl mx-auto px-6 py-20 text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-neutral-900">Both panels launching soon.</h2>
+          <h2 className="text-3xl font-semibold tracking-tight text-neutral-900">Both panels are live. Try them.</h2>
           <p className="mt-3 text-neutral-600 max-w-xl mx-auto">
-            The backend, SDK, and console are all built and running.
-            The public panels ship this month.
+            Sign in with any email and password — data is mocked, no signup required.
+            Click around, kick the tires, then browse the code on GitHub.
           </p>
-          <div className="mt-8 flex justify-center gap-3">
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <a
+              href="https://advertiser-xi.vercel.app"
+              className="inline-flex items-center rounded-md bg-neutral-900 text-white text-sm font-medium px-5 py-2.5 hover:bg-neutral-800 transition"
+            >
+              Advertiser console →
+            </a>
+            <a
+              href="https://publisher-rust.vercel.app"
+              className="inline-flex items-center rounded-md bg-neutral-900 text-white text-sm font-medium px-5 py-2.5 hover:bg-neutral-800 transition"
+            >
+              Publisher panel →
+            </a>
             <a
               href="https://github.com/Dev-Harsh0218/aduo"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center rounded-md bg-neutral-900 text-white text-sm font-medium px-5 py-2.5 hover:bg-neutral-800 transition"
-            >
-              See the code on GitHub
-            </a>
-            <a
-              href="mailto:mailharsh0218@gmail.com?subject=Aduo%20early%20access"
               className="inline-flex items-center rounded-md border border-neutral-300 text-neutral-900 text-sm font-medium px-5 py-2.5 hover:bg-neutral-50 transition"
             >
-              Ask for early access
+              See the code on GitHub
             </a>
           </div>
         </div>
