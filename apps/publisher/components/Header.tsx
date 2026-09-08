@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRightLeft, LogOut } from "lucide-react";
 
-const ADVERTISER_URL = process.env.NEXT_PUBLIC_ADVERTISER_URL || "#";
+const ADVERTISER_URL = process.env.NEXT_PUBLIC_ADVERTISER_URL || "https://advertiser-xi.vercel.app";
 
 type Props = {
   email?: string;

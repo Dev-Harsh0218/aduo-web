@@ -1,8 +1,8 @@
 {
-  "name": "@aduo/advertiser",
+  "name": "@aduo/advertiser-legacy",
   "version": "0.1.0",
   "private": true,
-  "description": "Aduo advertiser panel — campaign management, analytics, billing (legacy CRA — will migrate to Next.js in Phase 2)",
+  "description": "Aduo advertiser panel — LEGACY CRA. Superseded by @aduo/advertiser (Next.js 16). Kept for reference; do not build/deploy.",
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@testing-library/jest-dom": "^5.17.0",
